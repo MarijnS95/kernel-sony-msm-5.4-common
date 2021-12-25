@@ -36,7 +36,7 @@ for platform in $PLATFORMS; do \
 
                 KERNEL_TMP=$KERNEL_TMP/$platform
                 # Keep kernel tmp when building for a specific device or when using keep tmp
-                [ ! "$keep_kernel_tmp" ] && [ ! "$only_build_for" ] && rm -rf "${KERNEL_TMP}"
+                # [ ! "$keep_kernel_tmp" ] && [ ! "$only_build_for" ] && rm -rf "${KERNEL_TMP}"
                 mkdir -p "${KERNEL_TMP}"
 
                 # In case this is a dirty rebuild, delete all DTBs and DTBOs so that they
