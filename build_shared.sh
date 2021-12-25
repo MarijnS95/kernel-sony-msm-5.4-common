@@ -57,8 +57,7 @@ for platform in $PLATFORMS; do \
                 make O="$KERNEL_TMP" ARCH=arm64 \
                      CROSS_COMPILE=aarch64-linux-android- \
                      CROSS_COMPILE_ARM32=arm-linux-androideabi- \
-                     -j$(nproc) ${BUILD_ARGS} ${CC:+CC="${CC}"} \
-                     >"$KERNEL_TMP"/build.log 2>&1;
+                     -j$(nproc) ${BUILD_ARGS} ${CC:+CC="${CC}"};
 
                 echo "Copying new kernel image ..."
                 cp "$KERNEL_TMP/arch/arm64/boot/Image$comp$dtb" "$KERNEL_TOP/common-kernel/kernel$dtb-$device"
