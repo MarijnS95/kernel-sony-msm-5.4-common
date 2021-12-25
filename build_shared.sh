@@ -34,7 +34,7 @@ for platform in $PLATFORMS; do \
         (
             if [ ! $only_build_for ] || [ $device = $only_build_for ] ; then
 
-                KERNEL_TMP=$KERNEL_TMP-${device}
+                KERNEL_TMP=$KERNEL_TMP/$platform
                 # Keep kernel tmp when building for a specific device or when using keep tmp
                 [ ! "$keep_kernel_tmp" ] && [ ! "$only_build_for" ] && rm -rf "${KERNEL_TMP}"
                 mkdir -p "${KERNEL_TMP}"
