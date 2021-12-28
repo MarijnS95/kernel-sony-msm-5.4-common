@@ -46,8 +46,8 @@ for platform in $PLATFORMS; do \
                 echo "================================================="
                 echo "Platform -> ${platform} :: Device -> $device"
                 make O="$KERNEL_TMP" ARCH=arm64 \
-                                          CROSS_COMPILE=aarch64-linux-android- \
-                                          CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+                                          CROSS_COMPILE=aarch64-linux-gnu- \
+                                          CROSS_COMPILE_ARM32=arm-none-eabi- \
                                           -j$(nproc) ${BUILD_ARGS} ${CC:+CC="${CC}"} \
                                           aosp_${platform}_${device}_defconfig
 
@@ -55,8 +55,8 @@ for platform in $PLATFORMS; do \
                 echo "Building new kernel image ..."
                 echo "Logging to $KERNEL_TMP/build.log"
                 make O="$KERNEL_TMP" ARCH=arm64 \
-                     CROSS_COMPILE=aarch64-linux-android- \
-                     CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+                     CROSS_COMPILE=aarch64-linux-gnu- \
+                     CROSS_COMPILE_ARM32=arm-none-eabi- \
                      -j$(nproc) ${BUILD_ARGS} ${CC:+CC="${CC}"};
 
                 echo "Copying new kernel image ..."
